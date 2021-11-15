@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Work Day Scheduler</title>
-  </head>
 
-  <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-    </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Work Day Scheduler</title>
+</head>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  </body>
+<body>
+  <header class="jumbotron">
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
+  <ul class="container h-100 w-100 no-gutters">
+    <ul id="hr1" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-100 w-100 no-gutters">9AM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr1btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr2" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-100 w-100 no-gutters">10AM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr2btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr3" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">11AM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr3btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr4" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">12PM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr4btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr5" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">1PM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr5btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr6" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">2PM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr6btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr7" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">3PM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr7btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr8" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">4PM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr8btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+    <ul id="hr9" class="row h-200 w-100 no-gutters">
+      <li id="hour" class="col border-top border-right border-bottom text-right p-1 pr-2 h-200 w-100 no-gutters">5PM</li>
+      <li id="text" class="col-10 p-0 h-200 w-100 no-gutters"><textarea class="form-control w-100 h-200 p-0 pl-2 no-gutters" rows="3"></textarea></li>
+      <li id="hr9btn" class="col p-0 h-200 w-100 no-gutters"><button type="button" class="saveBtn btn-block"><span class="oi oi-folder"></span></button></li>
+    </ul>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
