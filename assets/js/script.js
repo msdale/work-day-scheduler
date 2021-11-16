@@ -81,16 +81,16 @@ var eventsArray = [];
 // FUNCTIONS
 
 
-/** Save events in session storage */
+/** Save events in local storage */
 var saveEvents = function () {
-  sessionStorage.removeItem("events");
-  sessionStorage.setItem("events", JSON.stringify(eventsArray));
+  localStorage.removeItem("events");
+  localStorage.setItem("events", JSON.stringify(eventsArray));
 }
 
-/** Load events from session storage */
+/** Load events from local storage */
 var loadEvents = function () {
-  eventsArray = JSON.parse(sessionStorage.getItem("events"));
-  testHour = parseInt(sessionStorage.getItem("testHour"));
+  eventsArray = JSON.parse(localStorage.getItem("events"));
+  testHour = parseInt(localStorage.getItem("testHour"));
   if (!eventsArray) {
     eventsArray = [];
   }
