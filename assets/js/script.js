@@ -1,5 +1,5 @@
 // global variables
-
+var testHour = null;
 var hourParams = [
   {
     "hourId":
@@ -83,18 +83,31 @@ var eventsArray = [];
 
 /** Save events in local storage */
 var saveEvents = function() {
+  localStorage.removeItem("events");
   localStorage.setItem("events", JSON.stringify(eventsArray));
 }
 
 /** Load events from local storage */
 var loadEvents = function() {
-  eventsArray = [];
   eventsArray = JSON.parse(localStorage.getItem("events"));
+  testHour = parseInt(localStorage.getItem("testHour"));
+  if (!eventsArray) {
+    eventsArray = [];
+  }
+
 }
 
 /** Mark daily work hours for past (grey), present (red), and future (green) */
 var markPastPresentFuture = function (date) {
-  var curHour = date.getHours();
+  var curHour;
+
+  // for testing
+  if (testHour) {
+    curHour = testHour;
+  } else {
+    curHour = date.getHours();
+  }
+
   for (var i = 0; i < hourParams.length; i++) {
     var hrVal = hourParams[i].hourValue;
     var idVal = "#" + hourParams[i].hourId;
@@ -149,7 +162,7 @@ var printDayMonthDDth = function (date) {
   ];
 
   var month = months[date.getMonth()];
-  var monthDay = date.getUTCDate();
+  var monthDay = date.getDate();
   var day = days[date.getDay()];
   var endingTxt = "th";
   switch (day) {
@@ -207,6 +220,6 @@ var refresh = function () {
 refresh();
 
 /** refresh/update the Work Day Scheduler */
-setInterval(refresh, (60 * 1000));
+//setInterval(refresh, (60 * 1000));
 
 
