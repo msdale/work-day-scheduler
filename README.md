@@ -14,7 +14,7 @@ https://msdale.github.io/work-day-scheduler/
 - Key is testHour (get the camel casing right)
        and...
   Value is <some integer from 0 - 23...represents hours of the day>
-- The testHour may already preset (it was set to 14; that is 2PM, for the image above)
+- The testHour may already be preset (it was set to 14; that is 2PM, for the image above)
 - Setting testHour will allow you to test the background color (past=grey, present=red, future=green).
 - NOTE: A value less than 9 will show up on the Work Day Scheduler as all green events (future)
       And a value more than 17 will show up on the Work Day Scheduler as all grey events (past)
