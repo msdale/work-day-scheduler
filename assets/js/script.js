@@ -19,7 +19,7 @@ var hourParams = [
   },
   {
     "hourId":
-      "hr3",
+    "hr3",
     "hourTag":
       "11AM",
     "hourValue":
@@ -81,16 +81,16 @@ var eventsArray = [];
 // FUNCTIONS
 
 
-/** Save events in local storage */
-var saveEvents = function() {
-  localStorage.removeItem("events");
-  localStorage.setItem("events", JSON.stringify(eventsArray));
+/** Save events in session storage */
+var saveEvents = function () {
+  sessionStorage.removeItem("events");
+  sessionStorage.setItem("events", JSON.stringify(eventsArray));
 }
 
-/** Load events from local storage */
-var loadEvents = function() {
-  eventsArray = JSON.parse(localStorage.getItem("events"));
-  testHour = parseInt(localStorage.getItem("testHour"));
+/** Load events from session storage */
+var loadEvents = function () {
+  eventsArray = JSON.parse(sessionStorage.getItem("events"));
+  testHour = parseInt(sessionStorage.getItem("testHour"));
   if (!eventsArray) {
     eventsArray = [];
   }
@@ -188,23 +188,27 @@ var printDayMonthDDth = function (date) {
 $(":button").on("click", function (event) {
   // get form values
   var eventText = $(this)
-                .closest(".row")
-                .find("#text")
-                .find("textarea")
-                .val();
+    .closest(".row")
+    .find("#text")
+    .find("textarea")
+    .val();
 
   // find the hour id
 
   var hourId = $(this)
-              .closest(".row")
-              .attr("id");
+    .closest(".row")
+    .attr("id");
 
-  // insert the event text into the stored array
-
-  eventsArray.push({
-    text: eventText,
-    id: hourId
-  });
+  // insert/update the event text into the stored array
+  if (eventsArray.find(obj => { return obj.id === hourId })) {
+    var eventIdx = eventsArray.findIndex(obj => obj.id === hourId);
+    eventsArray[eventIdx].text = eventText;
+  } else {
+    eventsArray.push({
+      text: eventText,
+      id: hourId
+    });
+  }
 
   saveEvents();
 });
@@ -213,6 +217,7 @@ $(":button").on("click", function (event) {
 var refresh = function () {
   var date = new Date();
   loadEvents();
+  saveEvents();
   printDayMonthDDth(date);
   markPastPresentFuture(date);
 }
@@ -220,6 +225,6 @@ var refresh = function () {
 refresh();
 
 /** refresh/update the Work Day Scheduler */
-//setInterval(refresh, (60 * 1000));
+setInterval(refresh, (10 * 1000));
 
 
