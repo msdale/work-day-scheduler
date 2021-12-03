@@ -5,6 +5,7 @@ A Time Management (daily planner) Application
 https://msdale.github.io/work-day-scheduler/
 
 ## URL image
+
 ![Work-Day-Scheduler](./assets/images/work-day-scheduler.png)
 
 ## Testing instructions
