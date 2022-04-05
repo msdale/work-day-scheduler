@@ -154,7 +154,7 @@ var printDayMonthDDth = function (date) {
   const days = [
     "Sunday",
     "Monday",
-    "TuesDay",
+    "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
